@@ -19,9 +19,9 @@ public class ACBMenu {
 			System.out.println("1. Borrar tablas");
 			System.out.println("2. Crear tablas");
 			System.out.println("3. Poblar masivamente la base de datos de pokemons");
-			System.out.println("4. Seleccionar todos los elementos que...");
-			System.out.println("5. Seleccionar todos los elementos que cumplan la condición...");
-			System.out.println("6. Seleccionar elementos concretos");
+			System.out.println("4. Seleccionar todos los pokemon de la tabla pokemon");
+			System.out.println("5. Seleccionar todas los pokemon de la tabla movimientos que sean de tipo normal");
+			System.out.println("6. Seleccionar los tipos de pokemons de la tabla tipo");
 			System.out.println("7. Seleccionar un elemento y modificarlo");
 			System.out.println("8. Modificar diferentes registros de información");
 			System.out.println("9. Eliminar un registro concreto de información");

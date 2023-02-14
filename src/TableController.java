@@ -1,64 +1,31 @@
 import org.postgresql.util.PSQLException;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Scanner;
 
 public class TableController {
-
     private Connection connection;
 
     public TableController(Connection connection){
         this.connection = connection;
     }
-
-    public void altaPokemon() throws SQLException, IOException {
-
-        Scanner reader = new Scanner(System.in);
-        System.out.println("Introduce el id del pokemon");
-        int id = reader.nextInt();
-        System.out.println("Introduce el nombre");
-        reader.nextLine();
-        String nombre = reader.nextLine();
-        System.out.println("Introduce la generacion");
-        String generacion = reader.nextLine();
-        System.out.println("Introduce el tipo");
-        String tipo = reader.nextLine();
-        System.out.println("Introduce la categoría");
-        String categoria = reader.nextLine();
-        System.out.println("Introduce la habilidad");
-        String habilidad = reader.nextLine();
-        System.out.println("Introduce el peso");
-        int peso = reader.nextInt();
-        System.out.println("Introduce la altura");
-        reader.nextLine();
-        int altura = reader.nextInt();
-        reader.nextLine();
-        System.out.println("Introduce el habitat");
-        String habitat = reader.nextLine();
-
-    }
-
-    public void insertInfo() throws  SQLException, IOException {
-
-    }
-
     public void deleteTables() throws SQLException, IOException, PSQLException {
-        String createTableSQL = "DROP TABLE Users";
-        PreparedStatement preparedStatement = connection.prepareStatement(createTableSQL);
-        preparedStatement.executeUpdate();
-
+            Statement statement = connection.createStatement();
+            statement.executeUpdate("DROP TABLE Movimientos");
+            statement.executeUpdate("DROP TABLE Tipo");
+        statement.executeUpdate("DROP TABLE Pokemon");
+            statement.close();
     }
 
     public void createTables() throws SQLException, IOException, PSQLException {
-        String createTableSQL = "CREATE TABLE Users (id INT PRIMARY KEY, name VARCHAR(255), age INT)";
+        Statement st = connection.createStatement();
+        st.executeUpdate("CREATE TABLE Pokemon (Id_pokemon INT, Nombre VARCHAR(4000), Categoría VARCHAR(4000), Habilidad VARCHAR(4000), Peso VARCHAR(4000), Altura VARCHAR(4000), Generacion VARCHAR(4000), Evoluciones VARCHAR(4000), Tipo VARCHAR(4000));");
+        st.executeUpdate("CREATE TABLE Tipo (Id_pokemon INT, Tipo VARCHAR(4000));");
+        st.executeUpdate("CREATE TABLE Movimientos (Id_pokemon INT, Nivel VARCHAR(4000), Nombre VARCHAR(4000), Tipo VARCHAR(4000), Clase VARCHAR(4000));");
 
-        PreparedStatement preparedStatement = connection.prepareStatement(createTableSQL);
-
-        // execute create SQL statement
-        preparedStatement.executeUpdate();
         System.out.println("Tablas creadas");
 
     }

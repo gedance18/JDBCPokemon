@@ -26,19 +26,21 @@ public class ACBMain {
 				break;
 
 			case 3:
-				// dbaccessor.mostraRevistesArticlesAutors();
+				pokemonController.insertInfoToPokemon();
+				pokemonController.insertInfoToTipo();
+				pokemonController.insertInfoToMovimientos();
 				break;
 
 			case 4:
-				// dbaccessor.altaAutor();
+				pokemonController.showPokemons();
 				break;
 
 			case 5:
-				// dbaccessor.altaRevista();
+				pokemonController.showTableMovementsTipo();
 				break;
 
 			case 6:
-				// dbaccessor.altaArticle();
+				pokemonController.showTipoWithTipos();
 				break;
 
 			case 7:
@@ -46,7 +48,7 @@ public class ACBMain {
 				break;
 
 			case 8:
-				// dbaccessor.afegeixArticleARevista(conn);
+				pokemonController.createPokemon();
 				break;
 
 			case 9:
